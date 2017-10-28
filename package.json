@@ -16,7 +16,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://vanadis0929.github.io/kbo",
+  "homepage": "http://vanadis0929.github.io/movie_app",
   "devDependencies": {
     "gh-pages": "^1.0.0"
   }
