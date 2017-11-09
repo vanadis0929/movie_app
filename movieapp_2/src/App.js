@@ -2,22 +2,44 @@ import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie'; //다른 js 불러오기 (자식 컴포넌트 )
 
-const movies = [
-  {
-    title: "하울의 움직이는 성",
-    poster: "http://www1.codewiz.kr/asset/www/pangpang/images/chatimg/gold_31G.png"
-  },
-  {
-    title: "스타워즈",
-    poster: "http://www1.codewiz.kr/asset/www/pangpang/images/chatimg/gold_12486G_1.png"
-  }
-]
-
 class App extends Component {
+
+//기본값 state
+state = {
+ //greeting: '안녕하세요?',
+  movies: [
+    {
+      title: "하울의 움직이는 성",
+      poster: "http://www1.codewiz.kr/asset/www/pangpang/images/chatimg/gold_31G.png"
+    },
+    {
+      title: "스타워즈",
+      poster: "http://www1.codewiz.kr/asset/www/pangpang/images/chatimg/gold_12486G_1.png"
+    }
+  ]
+}
+
+//3초후에 메시지 바뀜
+componentDidMount(){
+  setTimeout(() => {
+    this.setState({
+      //greeting: "무지무지 반가워요"
+        movies: [
+          ...this.state.movies, //이 줄이 없으면 추가되지 않고 기존것을 대체함
+          {
+            title: '해리포터',  
+            poster: 'http://www1.codewiz.kr/asset/www/pangpang/images/chatimg/gold_1004G_1.png'
+          }
+        ]
+      })
+    },3000);
+}
+
   render() {
     return (
       <article className="App">
-          {movies.map((movie, index) => {
+          {this.state.greeting}
+          {this.state.movies.map((movie, index) => {
              return  <Movie title={movie.title} poster={movie.poster} key={index} />
           })}
           
