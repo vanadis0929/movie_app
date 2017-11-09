@@ -49,15 +49,22 @@ array map : 다른 array들의 엘리먼트를 포함한 새로운 array를 생�
 
 
 // render 사이클 순서 (컴포넌트가 존재할때, 순서대로  )
-          componentWillMount()
+          componentWillMount();
           render()
-          componentDidMount()
+          componentDidMount();
 
 //update 순서          
+          componentWillReceiveProps()
+          shouldComponentUpdate()
+          componentWillUpdate()  이전 props 와 현재 props를 비교해서 다르면 true반환
+          render()
+          componentDidUpdate()
 
 
 
-
+state 
+state가 바뀔때 render가 발생
+state를 변경 하려할때는 직접적으로 하지 않고 setState()를 사용하여 변경
 
 
 
