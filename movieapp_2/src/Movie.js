@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-class Movie extends Component {
 
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired
-    }
     /*
         proptypes 
         부모컴포넌트나 api에서 오는 정보들에 대하여 그 정보가 어떤타입인지 (string, number 등), 있는지 없는지를 검증
@@ -16,30 +11,43 @@ class Movie extends Component {
         예: 이미지를 필수값으로 받아와야하는데 만약 없다면 디폴트 이미지를 대체출력하는 기능
     */
 
-    render() {
-        console.log(this.props);
-    return (
+
+
+function Movie({title, poster}){
+    return(
         <section>
-            <h1>{this.props.title}</h1>
-            <Poster poster={this.props.poster}   />
-            
-            </section>
-    );
-    }
+            <h1>{title}</h1>
+            <MoviePoster poster={poster}   />
+        </section>
+    )
 }
 
-class Poster extends Component{
+Movie.propTypes = {
+   title: PropTypes.string.isRequired,
+   poster: PropTypes.string.isRequired
 
-    /* 포스터의 속성 검증 */
-    static propTypes = {
-        poster: PropTypes.string.isRequired
-    }
+}
+
+
+/*
+class Poster extends Component{
     render(){
         return(
             <p><img src={this.props.poster} alt="" /></p>
         )
     }
+}*/
+
+/* 라이프사이클, render가 필요없는 컴포넌트는 함수형으로 바꿔서 사용 */
+function MoviePoster({poster}){
+    return(
+        <p><img src={poster} alt="movie 포스터" /></p>
+    )
 }
+
+MoviePoster.propTypes = {
+        poster: PropTypes.string.isRequired
+ }
 
 export default Movie;
 

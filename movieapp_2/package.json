@@ -12,6 +12,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
+  },
+  "homepage": "http://vanadis0929.github.to/movie_app",
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
   }
 }
+
+
