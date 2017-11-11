@@ -52,7 +52,7 @@ MoviePoster.propTypes = {
 export default Movie;
 
 
-
+/*
 
 //App : 무비리스트 
 //movie : 각각의 무비 아이템
@@ -61,3 +61,13 @@ export default Movie;
 //부모 컴포넌트가 자식 컴포넌트에게 정보를 주는수단 : props (this.props.속성명)
 
 //컴포넌트는 반드시 render를 해야함.
+// 
+
+똑똑한 컴포넌트 (compornent)
+state를 가짐,
+라이프사이클을 가짐
+
+멍청한 컴포넌트 (함수형)
+return만을 가짐
+
+*/
