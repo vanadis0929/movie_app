@@ -13,18 +13,24 @@ import './App.css';
 
 
 
-function Movie({title, poster}){
+function Movie({title, poster, genres, synopsis, rating}){
     return(
-        <section>
+        <section className="movie">
             <h1>{title}</h1>
-            <MoviePoster poster={poster}   />
+            <div className="thum"><MoviePoster poster={poster}   /></div>
+            <div className="movie_details">
+                {genres.map((genre, index) => <MovieGenre genres={genre} key={index} />)}
+            </div>
         </section>
     )
 }
 
 Movie.propTypes = {
    title: PropTypes.string.isRequired,
-   poster: PropTypes.string.isRequired
+   poster: PropTypes.string.isRequired,
+   genres: PropTypes.array.isRequired,
+   rating: PropTypes.number.isRequired,
+   synopsis: PropTypes.string.isRequired
 
 }
 
@@ -39,9 +45,19 @@ class Poster extends Component{
 }*/
 
 /* 라이프사이클, render가 필요없는 컴포넌트는 함수형으로 바꿔서 사용 */
-function MoviePoster({poster}){
+function MoviePoster({poster, title}){
     return(
-        <p><img src={poster} alt="movie 포스터" /></p>
+        <p><img src={poster} alt={title} /></p>
+    )
+}
+
+MoviePoster.propTypes = {
+        poster: PropTypes.string.isRequired
+ }
+
+ function MovieGenre({genres}){
+    return(
+        <span className="movie_genres">{genres}</span>
     )
 }
 
