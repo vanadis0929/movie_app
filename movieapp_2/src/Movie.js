@@ -47,7 +47,7 @@ class Poster extends Component{
 /* 라이프사이클, render가 필요없는 컴포넌트는 함수형으로 바꿔서 사용 */
 function MoviePoster({poster, title}){
     return(
-        <p><img src={poster} alt={title} /></p>
+        <img src={poster} alt={title} />
     )
 }
 

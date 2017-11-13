@@ -55,7 +55,7 @@ _callApi= () => {
     render() {
       return (
         <article className="App">
-          {this.state.movies ? this._renderMovies() : '로딩중...'} 
+          {this.state.movies ? this._renderMovies() : <p className="loading">로딩중...</p>} 
         </article>
       );
     };
