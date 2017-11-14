@@ -19,11 +19,13 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
   flex: 1;
   padding: 30vh 0;
 }
-.App { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; padding: 1%; }
+.App { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 1%; margin-top: -2%; margin-left: -2%; }
 .App:after { display: block; content: ''; clear: both; }
-.movie { width: 400px; padding: 5px; box-sizing: border-box; }
-.movie h1 { margin-bottom: 10px; }
-.movie .thum { text-align: center; }
+.movie { position: relative; width: 500px; padding: 1%; padding-left: 220px; box-sizing: border-box; min-height: 300px; margin: 2% 0 0 2%; box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.5); border-radius: 10px; background-color: #fff;  transition: all 0.5s; }
+.movie:hover { box-shadow: 1px 1px 5px 5px #000; transform: scale(1.05); z-index: 10; }
 
-.movie_genres { }
+.movie h1 { margin-bottom: 10px;  font-size: 16px; }
+.movie .thum { text-align: center; width: 200px;  position: absolute; left: 0; top: 0; }
+.movie .thum img {border-radius:  10px 0 0 10px;  }
+.movie_genres { font-size: 12px; font-weight: bold; }
 .movie_genres:not(:last-child):after { content: ', '; }

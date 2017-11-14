@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis';
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function Movie({title, poster, genres, synopsis, rating}){
             <div className="thum"><MoviePoster poster={poster}   /></div>
             <div className="movie_details">
                 {genres.map((genre, index) => <MovieGenre genres={genre} key={index} />)}
+                <MovieSynopsis synopsis={synopsis}  />
             </div>
         </section>
     )
@@ -31,7 +33,6 @@ Movie.propTypes = {
    genres: PropTypes.array.isRequired,
    rating: PropTypes.number.isRequired,
    synopsis: PropTypes.string.isRequired
-
 }
 
 
@@ -63,6 +64,16 @@ MoviePoster.propTypes = {
 
 MoviePoster.propTypes = {
         poster: PropTypes.string.isRequired
+ }
+
+ function MovieSynopsis({synopsis}){
+    return(
+        <p className="movie_synopsis">{synopsis}</p>
+    )
+}
+
+MoviePoster.propTypes = {
+        synopsis: PropTypes.string.isRequired
  }
 
 export default Movie;
