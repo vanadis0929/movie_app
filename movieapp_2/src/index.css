@@ -29,3 +29,5 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
 .movie .thum img {border-radius:  10px 0 0 10px;  }
 .movie_genres { font-size: 12px; font-weight: bold; }
 .movie_genres:not(:last-child):after { content: ', '; }
+
+.movie_synopsis { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; font-size: 12px; }

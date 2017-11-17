@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LinesEllipsis from 'react-lines-ellipsis';
+//import LinesEllipsis from 'react-lines-ellipsis';
 import './App.css';
 
 
@@ -53,6 +53,7 @@ function MoviePoster({poster, title}){
 }
 
 MoviePoster.propTypes = {
+        title: PropTypes.string.isRequired,
         poster: PropTypes.string.isRequired
  }
 
