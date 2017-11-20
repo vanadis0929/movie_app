@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import LinesEllipsis from 'react-lines-ellipsis';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import './App.css';
 
 
@@ -13,20 +14,25 @@ import './App.css';
     */
 
 
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 function Movie({title, poster, genres, synopsis, rating}){
     return(
         <section className="movie">
             <h1>{title}</h1>
             <div className="thum"><MoviePoster poster={poster}   /></div>
-            <div className="movie_details">
-                {genres.map((genre, index) => <MovieGenre genres={genre} key={index} />)}
-                <MovieSynopsis synopsis={synopsis}  />
+            <div className="movie_genre">
+                {genres.map((genre, index) => 
+                    <MovieGenre genres={genre} key={index} />)
+                }
             </div>
+            
+            <div className="movie_synopsis"><ResponsiveEllipsis text={synopsis} maxLine='3' ellipsis='...' trimRight basedOn='letters' /></div>
         </section>
     )
 }
 
+//여기서 한번에해도 되는거 아닐까 ?? 각각 함수마다 해야하는걸까 ?
 Movie.propTypes = {
    title: PropTypes.string.isRequired,
    poster: PropTypes.string.isRequired,
@@ -51,31 +57,30 @@ function MoviePoster({poster, title}){
         <img src={poster} alt={title} />
     )
 }
-
 MoviePoster.propTypes = {
-        title: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired
+        //title: PropTypes.string.isRequired,
+        //poster: PropTypes.string.isRequired
  }
 
  function MovieGenre({genres}){
     return(
-        <span className="movie_genres">{genres}</span>
+        <span>{genres}</span>
     )
 }
+MovieGenre.propTypes = {
+       // genres: PropTypes.string.isRequired
+}
 
-MoviePoster.propTypes = {
-        poster: PropTypes.string.isRequired
- }
-
- function MovieSynopsis({synopsis}){
+function MovieSynopsis({synopsis}){
     return(
         <p className="movie_synopsis">{synopsis}</p>
     )
 }
+MovieSynopsis.propTypes = {
+        //synopsis: PropTypes.string.isRequired
+}
 
-MoviePoster.propTypes = {
-        synopsis: PropTypes.string.isRequired
- }
+
 
 export default Movie;
 

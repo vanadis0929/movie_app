@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie'; //다른 js 불러오기 (자식 컴포넌트 )
+//import LineEllipsis from 'react-lines-ellipsis';
 
 class App extends Component {
 
