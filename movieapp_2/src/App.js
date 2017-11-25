@@ -46,7 +46,7 @@ _callApi= () => {
         .then으로 그 다음동작을 수행
         catch로 에러를 잡아낸다
       */  
-    return fetch('https://yts.ag/api/v2/list_movies.json?sort_by=year')
+    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=year')
     .then(result => result.json() ) //결과를 json형태(객체)로 불러옴 
     .then(json => json.data.movies)
     .catch(err => console.log(err));
