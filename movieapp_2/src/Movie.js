@@ -25,9 +25,10 @@ function Movie({title, poster, genres, synopsis, rating}){
                 {genres.map((genre, index) => 
                     <MovieGenre genres={genre} key={index} />)
                 }
+                <MovieRating rating={rating} />
             </div>
             
-            <div className="movie_synopsis"><ResponsiveEllipsis text={synopsis} maxLine='3' ellipsis='...' trimRight basedOn='letters' /></div>
+            <div className="movie_synopsis"><ResponsiveEllipsis text={synopsis} maxLine='5' ellipsis='...' trimRight basedOn='letters' /></div>
         </section>
     )
 }
@@ -78,6 +79,13 @@ function MovieSynopsis({synopsis}){
 }
 MovieSynopsis.propTypes = {
         //synopsis: PropTypes.string.isRequired
+}
+
+function MovieRating({rating}){
+    var ratingPersent = rating * 10 ;
+    return(
+        <p className="movie_rating" style={{width: ratingPersent + '%' }}><span>{rating}</span></p>
+    )
 }
 
 

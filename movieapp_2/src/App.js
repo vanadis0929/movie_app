@@ -32,11 +32,11 @@ class App extends Component {
 
  _getMovies = async () => { //비동기 함수
   const  movies  = await this._callApi()
-  /* callapi가 작업이 수행되기 (완료가 아님) 전에는 실행되지 않음 */
+  /* _callApi가 작업이 수행되기 (완료가 아님) 전에는 실행되지 않음 */
   this.setState({
      movies
   })
-  /* callapi가 작업이 수행되기 (완료가 아님) 전에는 실행되지 않음 */
+  /* _callApi가 작업이 수행되기 (완료가 아님) 전에는 실행되지 않음 */
 }
 
 _callApi= () => {

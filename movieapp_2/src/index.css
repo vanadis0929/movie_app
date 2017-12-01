@@ -20,14 +20,14 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
   flex: 1;
   padding: 30vh 0;
 }
-.App { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 1%; margin-top: -2%; margin-left: -2%; }
+.App { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 20px; margin-top:-30px; margin-left: -30px; }
 .App:after { display: block; content: ''; clear: both; }
 .movie { position: relative; 
               width: 500px; 
               padding: 1% 1% 1% 170px; 
               box-sizing: border-box; 
               min-height: 225px; 
-              margin: 2% 0 0 2%; 
+              margin: 30px 0 0 30px ; 
               box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.5);
               border-radius: 10px; 
               background-color: #fff;  
@@ -39,8 +39,11 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
                     }
 .LinesEllipsis { overflow: hidden; }
 .movie h1 { margin-bottom: 10px;  font-size: 16px; }
-.movie .thum { text-align: center; width: 150px;  position: absolute; left: 0; top: 0; }
-.movie .thum img {border-radius:  10px 0 0 10px;  }
+.movie .thum { min-height: 225px; text-align: center; width: 150px;  position: absolute; left: 0; top: 0; 
+background: url('no_image.png') no-repeat left / 150px; 
+border-radius: 10px;
+}
+.movie .thum img { border-radius:  10px 0 0 10px;  }
 .movie_genre { margin-bottom: 20px; }
 .movie_genre span { font-size: 14px; font-weight: bold; }
 .movie_genre span:after { content: ', '; }
@@ -48,12 +51,16 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
 
 .movie_synopsis { font-size: 13px; }
 
+.movie_rating { position: relative; height: 30px;  }
+.movie_rating span { position: absolute; left: 0; top: 0; }
+
+
 @media all and (max-width: 500px){
   .App { padding: 20px; }
   .movie { min-height: 0; padding: 10px; margin-bottom: 20px; }
   .movie:hover { transform: none; }
   .movie .thum { position: static; max-width: 300px; margin-bottom: 10px; }
-  .movie .thum img {border-radius: 10px; }
+  .movie .thum img { border-radius: 10px; }
   .movie_genre { margin-bottom: 10px; }
   
 }
