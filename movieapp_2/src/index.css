@@ -41,7 +41,7 @@ img { vertical-align: top; max-width: 100%; border: 0 none; border-radius: 10px;
 .movie h1 { margin-bottom: 10px;  font-size: 16px; }
 .movie .thum { min-height: 225px; text-align: center; width: 150px;  position: absolute; left: 0; top: 0; 
 background: url('no_image.png') no-repeat left / 150px; 
-border-radius: 10px;
+border-radius:  10px 0 0 10px;
 }
 .movie .thum img { border-radius:  10px 0 0 10px;  }
 .movie_genre { margin-bottom: 20px; }
@@ -51,9 +51,20 @@ border-radius: 10px;
 
 .movie_synopsis { font-size: 13px; }
 
-.movie_rating { position: relative; height: 30px;  }
-.movie_rating span { position: absolute; left: 0; top: 0; }
-
+.movie_rating { position: relative;
+  height: 30px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  box-sizing: border-box; border-radius: 10px; }
+.movie_rating span { 
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(255, 0, 0, 0.47);
+  font-size: 20px;
+  text-align: right;
+  padding-right: 10px; transition: all 0.5s; border-radius: 10px; }
+  .movie_rating em { font-style: normal; position: absolute; top: 0; left: 0; padding-left: 10px; text-shadow: 1px 1px 6px #ffffff;  border-radius: inherit; }
 
 @media all and (max-width: 500px){
   .App { padding: 20px; }
