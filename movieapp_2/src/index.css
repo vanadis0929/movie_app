@@ -47,7 +47,7 @@ border-radius:  10px 0 0 10px;
 .movie_genre { margin-bottom: 20px; }
 .movie_genre span { font-size: 14px; font-weight: bold; }
 .movie_genre span:after { content: ', '; }
-.movie_genre span:last-child:after { content: none; }
+.movie_genre span:last-of-type:after { content: none; }
 
 .movie_synopsis { font-size: 13px; }
 
