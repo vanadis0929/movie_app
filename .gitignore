@@ -1,1 +1,4 @@
 개개비/
+weather-app/weather-app/.watchmanconfig
+weather-app/weather-app/.gitignore
+weather-app/weather-app/.babelrc

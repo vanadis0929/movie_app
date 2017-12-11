@@ -5,11 +5,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>테스트 입니다~~~~</Text>
-        <Text>테스트 입니다~~~~</Text>
-        <Text>테스트 입니다~~~~</Text>
+        <Text>Open up App.js to start working on your app!</Text>
       </View>
-      
     );
   }
 }
@@ -17,8 +14,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f00',
+    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 });
