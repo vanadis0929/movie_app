@@ -1,23 +1,57 @@
-import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import React, { Component } from "react";
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+  StatusBar
+} from "react-native";
 import Weather from "./Weather";
 
 export default class App extends React.Component {
   state = {
-    isLoaded: true
+    isLoaded: false
   };
 
+  componentDidMount() {
+    //현재위치 정보를 불러온다. 위치정보를 정상적으로 수신시에 isLoaded를 true로 바꿈.
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          isLoaded: false,
+          error: error
+        });
+        //console.log(position)
+      },
+      error => {
+        //에러발생시 error state를 변경하여 에러 메시지등을 표시
+        this.setState({
+          error: error
+        });
+      }
+    );
+  }
+
   render() {
-    const { isLoaded } = this.state;
+    const { isLoaded, error } = this.state;
     return (
       <View style={styles.container}>
-        {isLoaded ? ( <Weather /> ) : (
+        {/* 상태바를 import 해서 숨김 */}
+        <StatusBar hidden={true} />
+        {isLoaded ? (
+          <Weather />
+        ) : (
           <View style={styles.loading}>
             <Text style={styles.loadingText}>날씨정보 불러오는중...</Text>
+            {error ? (
+              <Text style={styles.errorText}>
+                위치 값을 받아오지 못하였습니다. 폰의 GPS설정을 확인해주세요.
+              </Text>
+            ) : null}
           </View>
         )}
       </View>
-      
     );
   }
 }
@@ -30,14 +64,19 @@ const styles = StyleSheet.create({
   },
   loading: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    backgroundColor: '#fdf6aa'
+    alignItems: "center",
+    justifyContent: "flex-end",
+    backgroundColor: "#fdf6aa"
   },
-  loadingText:{
+  loadingText: {
     fontSize: 35,
-    textAlign: 'center',
+    textAlign: "center",
     paddingBottom: 100
+  },
+  errorText: {
+    color: "red",
+    fontSize: 20,
+    textAlign: "center",
+    paddingBottom: 50
   }
 });
-
