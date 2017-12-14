@@ -9,19 +9,21 @@ import {
 } from "react-native";
 import Weather from "./Weather";
 
+const APPKEY = "3f9404e51a676528522e910eefbc4158";
+
 export default class App extends React.Component {
   state = {
-    isLoaded: false
+    isLoaded: false,
+    error: null,
+    temperature: null,
+    name: null
   };
 
   componentDidMount() {
     //현재위치 정보를 불러온다. 위치정보를 정상적으로 수신시에 isLoaded를 true로 바꿈.
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState({
-          isLoaded: false,
-          error: error
-        });
+        this._getWeather(position.coords.latitude, position.coords.longitude);
         //console.log(position)
       },
       error => {
@@ -32,6 +34,23 @@ export default class App extends React.Component {
       }
     );
   }
+
+  _getWeather = (lat, long) => {
+    fetch(
+      //왜 얘만 ` 로 감싸줘야함 -_-?...
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${APPKEY}`
+    )
+      .then(response => response.json())
+      .then(json => {
+        //날씨코드와 온도를 가져옴
+        this.setState({
+          temperature: json.main.temp,
+          name: json.weather[0].main,
+          isLoaded: true
+        });
+        console.log(json);
+      });
+  };
 
   render() {
     const { isLoaded, error } = this.state;
