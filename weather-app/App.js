@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import {
   AppRegistry,
   StyleSheet,
@@ -37,9 +39,9 @@ export default class App extends React.Component {
 
   _getWeather = (lat, long) => {
     fetch(
-      //왜 얘만 ` 로 감싸줘야함 -_-?...
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${APPKEY}`
-    )
+        //왜 얘만 ` 로 감싸줘야함 -_-?...
+        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${APPKEY}`
+      )
       .then(response => response.json())
       .then(json => {
         //날씨코드와 온도를 가져옴
@@ -53,24 +55,48 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { isLoaded, error, temperature, name } = this.state;
-    return (
-      <View style={styles.container}>
-        {/* 상태바를 import 해서 숨김 */}
-        <StatusBar hidden={true} />
-        {isLoaded ? (
-          <Weather weatherName={name} temp={Math.ceil(temperature - 273.15)} />
-        ) : (
-          <View style={styles.loading}>
-            <Text style={styles.loadingText}>날씨정보 불러오는중...</Text>
-            {error ? (
-              <Text style={styles.errorText}>
-                위치 값을 받아오지 못하였습니다. 폰의 GPS설정을 확인해주세요.
-              </Text>
-            ) : null}
-          </View>
-        )}
-      </View>
+    const {
+      isLoaded,
+      error,
+      temperature,
+      name
+    } = this.state;
+    return ( <
+      View style = {
+        styles.container
+      } > { /* 상태바를 import 해서 숨김 */ } <
+      StatusBar hidden = {
+        true
+      }
+      /> {
+        isLoaded ? ( <
+          Weather weatherName = {
+            name
+          }
+          temp = {
+            Math.ceil(temperature - 273.15)
+          }
+          />
+        ) : ( <
+          View style = {
+            styles.loading
+          } >
+          <
+          Text style = {
+            styles.loadingText
+          } > 날씨정보 불러오는중... < /Text> {
+            error ? ( <
+              Text style = {
+                styles.errorText
+              } >
+              위치 값을 받아오지 못하였습니다.폰의 GPS설정을 확인해주세요. <
+              /Text>
+            ) : null
+          } <
+          /View>
+        )
+      } <
+      /View>
     );
   }
 }
