@@ -2,3 +2,5 @@
 weather-app/weather-app/.watchmanconfig
 weather-app/weather-app/.gitignore
 weather-app/weather-app/.babelrc
+/.vscode/
+timer-app/.vscode/settings.json
