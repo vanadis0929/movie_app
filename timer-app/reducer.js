@@ -1,14 +1,14 @@
 //리덕스 불러오는 순서
 
-//import
+//* import
 
-//actions 변수선언
+//* actions 변수선언
 
 const START_TIMER = "START_TIMER";
 const RESTART_TIMER = "RESTART_TIMER";
 const ADD_SECOND = "ADD_SECOND";
 
-//action creators
+//* action creators
 
 function startTimer() {
   return {
@@ -28,7 +28,7 @@ function addSecond() {
   };
 }
 
-//reducer
+//* reducer
 const TIME_DURATION = 1500;
 
 //   리덕스 스토어에 올라갈 내용 (기본state) (카운트여부, 카운팅시간, 카운팅하고있는 시간)
@@ -54,7 +54,7 @@ function reducer(state = initialState, action) {
   }
 }
 
-//reducer functions
+//* reducer functions
 function applyStartTimer(state) {
   return {
     //기본 state를 유지한 채 덮어씀
@@ -86,12 +86,14 @@ function applyAddSecond(state) {
   }
 }
 
-//export action creators
+//* export action creators
 const actionCreators = {
   startTimer,
   restartTimer,
   addSecond
 };
 
-//export reducer
+export { actionCreators };
+
+//* export reducer
 export default reducer;
