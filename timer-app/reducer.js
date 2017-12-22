@@ -49,6 +49,8 @@ function reducer(state = initialState, action) {
     case ADD_SECOND:
       return applyAddSecond(state);
       break;
+    default:
+      return state;
   }
 }
 
