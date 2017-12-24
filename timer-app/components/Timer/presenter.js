@@ -67,7 +67,7 @@ class Timer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ed1233"
+    backgroundColor: "#0f0"
   },
   upper: {
     flex: 1,
