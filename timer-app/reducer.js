@@ -29,56 +29,54 @@ function addSecond() {
 }
 
 //* reducer
-const TIME_DURATION = 1500;
+const TIMER_DURATION = 1500;
 
 //   리덕스 스토어에 올라갈 내용 (기본state) (카운트여부, 카운팅시간, 카운팅하고있는 시간)
 const initialState = {
-  isCounting: false,
+  isPlaying: false,
   counterDuration: 1500,
-  elapsedTime: TIME_DURATION
+  elapsedTime: TIMER_DURATION
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case START_TIMER:
-      return applyStartTimer(state);
-      break;
+      return applyStartTimer(state, action);
     case RESTART_TIMER:
-      return applyRestartTimer(state);
-      break;
+      return applyRestartTimer(state, action);
     case ADD_SECOND:
-      return applyAddSecond(state);
-      break;
+      return applyAddSecond(state, action);
     default:
       return state;
   }
 }
 
 //* reducer functions
-function applyStartTimer(state) {
+function applyStartTimer(state, action) {
   return {
-    //기본 state를 유지한 채 덮어씀
     ...state,
-    isPlaying: true
+    isPlaying: true,
+    elapsedTime: 0
   };
 }
 
-function applyRestartTimer(state) {
+function applyRestartTimer(state, action) {
   return {
-    //기본 state를 유지한 채 덮어씀
     ...state,
     isPlaying: false,
     elapsedTime: 0
   };
 }
 
-function applyAddSecond(state) {
-  if (state.elapsedTime < TIME_DURATION) {
+function applyAddSecond(state, action) {
+  const { elapsedTime } = state;
+  if (elapsedTime < TIMER_DURATION) {
     return {
       ...state,
-      elapsedTime: state.elapsedTime + 1
+      elapsedTime: elapsedTime + 1
     };
-  } else {
+  } 
+  else {
     return {
       ...state,
       isPlaying: false

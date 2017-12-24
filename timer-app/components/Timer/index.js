@@ -15,8 +15,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     startTimer: bindActionCreators(tomatoActions.startTimer, dispatch),
-    restartTimer: bindActionCreators(tomatoActions.restartTimer, dispatch)
+    restartTimer: bindActionCreators(tomatoActions.restartTimer, dispatch),
+    addSecond: bindActionCreators(tomatoActions.addSecond, dispatch)
   };
 }
 
-export default connect(mapStateToProps)(Timer);
+export default connect(mapStateToProps, mapDispatchToProps)(Timer);
