@@ -75,8 +75,7 @@ function applyAddSecond(state, action) {
       ...state,
       elapsedTime: elapsedTime + 1
     };
-  } 
-  else {
+  } else {
     return {
       ...state,
       isPlaying: false

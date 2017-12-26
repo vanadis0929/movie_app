@@ -12,7 +12,7 @@ console.log(store.getState());
 
 export default class App extends React.Component {
   render() {
-    return(
+    return (
       <Provider store={store}>
         <Timer />
       </Provider>

@@ -8,15 +8,14 @@ function formatTime(time) {
 
   var seconds = parseInt(time % 60, 10);
 
-  return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10
-    ? `0${seconds}`
-    : seconds}`;
+  return `${minutes < 10 ? `0${minutes}` : minutes}:${
+    seconds < 10 ? `0${seconds}` : seconds
+  }`;
 
   return;
 }
 
 class Timer extends Component {
-
   componentWillReceiveProps(nextProps) {
     const currentProps = this.props;
     if (!currentProps.isPlaying && nextProps.isPlaying) {
@@ -30,8 +29,6 @@ class Timer extends Component {
       clearInterval(this.state.interval);
     }
   }
-
-
 
   render() {
     console.log(this.props);
@@ -67,7 +64,7 @@ class Timer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000"
+    backgroundColor: "#050"
   },
   upper: {
     flex: 1,
@@ -77,9 +74,17 @@ const styles = StyleSheet.create({
   lower: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexDirection: "row"
   },
-  time: { color: "#fff", fontSize: 130, fontWeight: "100" }
+  time: {
+    color: "#fff",
+    fontSize: 130,
+    fontWeight: "100",
+    fontStyle: "italic",
+    textShadowColor: "#000",
+    lineHeight: 2
+  }
 });
 
 export default Timer;

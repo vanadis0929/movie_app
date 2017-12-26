@@ -6,7 +6,12 @@ import { FontAwesome } from "@expo/vector-icons";
 function Button({ iconName, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
-      <FontAwesome name={iconName} size={80} color="white" />
+      <FontAwesome
+        style={styles.Button}
+        name={iconName}
+        size={80}
+        color="white"
+      />
     </TouchableOpacity>
   );
 }
@@ -17,9 +22,9 @@ Button.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: 80,
-    width: 80
+  Button: {
+    marginRight: 25,
+    marginLeft: 25
   }
 });
 
