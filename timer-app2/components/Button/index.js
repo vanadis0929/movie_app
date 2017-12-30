@@ -5,10 +5,15 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 
 function Button({ iconName, onPress }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPressOut={onPress}>
       <FontAwesome name={iconName} size={100} color="white" />
     </TouchableOpacity>
   );
 }
+
+Button.PropTypes = {
+  iconName: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired
+};
 
 export default Button;
